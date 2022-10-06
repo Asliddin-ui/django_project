@@ -1,0 +1,39 @@
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css1/style.css' %}">
+    </head>
+<body>
+    <div class = "d-flex">
+        <form class="d-flex paddings" role="search" action="{% url 'main_index' %}">
+            <input class="form-control me-2" type="search" placeholder="First_name" aria-label="Search" name="First_name" >
+            <input class="form-control me-2" type="search" placeholder="Last_name" aria-label="Search" name="Last_name" >
+            <button type="submit">Save</button>
+        </form>
+        <form class="d-flex paddings" role="search" action="{% url 'main_index' %}">
+
+        </form>
+    </div>
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>Ism</th>
+            <th>Familiya</th>
+            <th>Tugilgan sana</th>
+        </thead>
+        <tbody>
+            {% for item in datas %}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.first_name}}</td>
+                <td>{{item.last_name}}</td>
+                <td>{{item.birthday}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
